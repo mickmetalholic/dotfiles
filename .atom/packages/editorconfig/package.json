@@ -1,0 +1,84 @@
+{
+  "_from": "https://www.atom.io/api/packages/editorconfig/versions/2.2.2/tarball",
+  "_id": "editorconfig@2.2.2",
+  "_inBundle": false,
+  "_integrity": "sha512-s2aN6jkqrrxNZlEdFV87/ALAxK7816ehVcqdobPh/Qd6qwHyuadS+rlcEZq47HHOsi4GXcjiOwzRKKAHtzuGOg==",
+  "_location": "/editorconfig",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/editorconfig/versions/2.2.2/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/editorconfig/versions/2.2.2/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/editorconfig/versions/2.2.2/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/editorconfig/versions/2.2.2/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/editorconfig/versions/2.2.2/tarball",
+  "_shasum": "6e3c13162ce72800a0775b8a576754357f9e92df",
+  "_spec": "https://www.atom.io/api/packages/editorconfig/versions/2.2.2/tarball",
+  "_where": "/tmp/apm-install-dir-1181015-29076-10pmc1o.clcf",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bugs": {
+    "url": "https://github.com/sindresorhus/atom-editorconfig/issues"
+  },
+  "bundleDependencies": false,
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  },
+  "dependencies": {
+    "editorconfig": "^0.13.2",
+    "lazy-req": "^1.1.0",
+    "pify": "^2.3.0"
+  },
+  "deprecated": false,
+  "description": "Helps developers maintain consistent coding styles between different editors",
+  "devDependencies": {
+    "xo": "*"
+  },
+  "engines": {
+    "atom": ">=1.13.0"
+  },
+  "homepage": "https://github.com/sindresorhus/atom-editorconfig#readme",
+  "keywords": [
+    "editorconfig",
+    "format",
+    "code",
+    "style",
+    "code-style"
+  ],
+  "license": "MIT",
+  "name": "editorconfig",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindresorhus/atom-editorconfig.git"
+  },
+  "scripts": {
+    "test": "xo && apm test"
+  },
+  "version": "2.2.2",
+  "xo": {
+    "esnext": true,
+    "globals": [
+      "atom",
+      "document"
+    ],
+    "ignores": [
+      "atom/**"
+    ],
+    "rules": {
+      "import/prefer-default-export": "off"
+    }
+  }
+}

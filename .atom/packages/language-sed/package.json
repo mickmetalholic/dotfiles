@@ -1,0 +1,54 @@
+{
+  "_from": "https://www.atom.io/api/packages/language-sed/versions/1.0.0/tarball",
+  "_id": "language-sed@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-0RPhhn+FJeXpNpSc9WEp3K/nS53A3iUdsJuSvLQe0SB8mFc80TYH0yehFeb2qJr6oIst17yKZa7ockxps1ZOTw==",
+  "_location": "/language-sed",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-sed/versions/1.0.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-sed/versions/1.0.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-sed/versions/1.0.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-sed/versions/1.0.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/language-sed/versions/1.0.0/tarball",
+  "_shasum": "ee20028b73baf634a0529f6b676e74bc5669dbed",
+  "_spec": "https://www.atom.io/api/packages/language-sed/versions/1.0.0/tarball",
+  "_where": "/tmp/apm-install-dir-1181015-29937-bw90m8.yoho6",
+  "author": {
+    "name": "Alhadis",
+    "email": "gardnerjohng@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Alhadis/language-sed/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Syntax highlighting for `sed` scripts.",
+  "engines": {
+    "atom": "*"
+  },
+  "homepage": "https://github.com/Alhadis/language-sed#readme",
+  "keywords": [
+    "sed",
+    "stream",
+    "editor",
+    "awk",
+    "perl",
+    "grep",
+    "unix",
+    "regexp"
+  ],
+  "license": "ISC",
+  "name": "language-sed",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alhadis/language-sed.git"
+  },
+  "version": "1.0.0"
+}
