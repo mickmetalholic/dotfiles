@@ -1,7 +1,6 @@
-# dotfiles for Ubuntu
+# dotfiles
 
-The programming environment configurations for Ubuntu.
-
+The programming environment configurations for Linux.
 
 ## Softwares
 
@@ -20,3 +19,11 @@ The programming environment configurations for Ubuntu.
       - clang
 - Others
   - curl
+
+
+
+## TODO
+
+[ ] install/upgrade scripts
+
+[ ] software checklist
