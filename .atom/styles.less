@@ -1,0 +1,46 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+.header, .header *,
+.left, .left *,
+.vertical .tab-bar,
+.vertical .tab-bar *,
+.vertical .settings-view,
+.vertical .settings-view *,
+.vertical .bottom,
+.vertical .bottom *,
+.right, .right *,
+.modal, .modal *,
+.tooltip, .tooltip *,
+atom-notifications, atom-notifications * {
+  font-family: "Ubuntu" !important;
+  font-size: 15px !important;
+}
+
+.footer, .footer * {
+  font-family: "Ubuntu" !important;
+  font-size: 14px !important;
+}
+
+// tab width
+ul.tab-bar li {
+  max-width: 220px !important;
+}
+
+// move tree view down
+.tree-view {
+  padding-top: 10px !important;
+}
+
+// hide button text when install package
+.install-button.is-installing {
+  font-size: 0 !important;
+}
