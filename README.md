@@ -24,6 +24,9 @@ The programming environment configurations for Linux.
 
 ## TODO
 
-[ ] install/upgrade scripts
+- [ ] install/upgrade scripts
 
-[ ] software checklist
+- [ ] software checklist
+
+- [ ] vs code extensions installation script
+
