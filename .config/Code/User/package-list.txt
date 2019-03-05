@@ -1,0 +1,10 @@
+eamodio.gitlens
+EditorConfig.EditorConfig
+emmanuelbeziat.vscode-great-icons
+flowtype.flow-for-vscode
+ms-python.python
+naumovs.color-highlight
+octref.vetur
+shengchen.vscode-leetcode
+xabikos.JavaScriptSnippets
+zhuangtongfa.Material-theme
