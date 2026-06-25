@@ -1,0 +1,61 @@
+shared:
+  mise:
+    - node@24
+    - pnpm@9.15.4
+    - uv@latest
+    - python@3.12
+    - bun@latest
+    - go@latest
+    - rust@latest
+
+darwin:
+  brew:
+    - git
+    - gh
+    - jq
+    - ripgrep
+    - fd
+    - fzf
+    - zoxide
+    - starship
+    - mise
+    - direnv
+    - uv
+  casks:
+    - ghostty
+    - visual-studio-code
+    - obsidian
+
+linux:
+  apt:
+    - git
+    - curl
+    - unzip
+    - jq
+    - ripgrep
+    - fd-find
+    - fzf
+    - zsh
+  brew:
+    - gh
+    - starship
+    - mise
+    - uv
+
+windows:
+  winget:
+    - Git.Git
+    - GitHub.cli
+    - Microsoft.PowerShell
+    - Microsoft.WindowsTerminal
+    - jdx.mise
+    - sharkdp.fd
+    - BurntSushi.ripgrep.MSVC
+  scoop:
+    - jq
+    - fzf
+    - starship
+    - zoxide
+  gui:
+    - Microsoft.VisualStudioCode
+    - Obsidian.Obsidian

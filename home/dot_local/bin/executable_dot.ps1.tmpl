@@ -1,0 +1,9 @@
+$ErrorActionPreference = "Stop"
+
+if (Get-Command chezmoi -ErrorAction SilentlyContinue) {
+  $source = (& chezmoi source-path)
+} else {
+  $source = Join-Path $HOME ".local\share\chezmoi"
+}
+
+& (Join-Path $source "scripts\dot.ps1") @args

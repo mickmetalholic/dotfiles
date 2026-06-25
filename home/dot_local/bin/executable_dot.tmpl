@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -eu
+
+if command -v chezmoi >/dev/null 2>&1; then
+  src="$(chezmoi source-path)"
+else
+  src="$HOME/.local/share/chezmoi"
+fi
+
+exec "$src/scripts/dot.sh" "$@"

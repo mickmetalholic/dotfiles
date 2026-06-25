@@ -1,0 +1,34 @@
+schema: spec-driven
+
+context: |
+  Project: Personal private dotfiles repository for mickmetalholic.
+  Scope: Manage machine configuration and health checks across Windows, macOS,
+  and Linux. Chezmoi is the source-of-truth engine for applying files into the
+  home directory. A unified `dot` command wraps doctor, bootstrap, apply, update,
+  diff, edit, packages, and runtime workflows.
+  Core tools: chezmoi, mise, GitHub CLI, winget, scoop, Homebrew, apt, zsh,
+  PowerShell, starship, zoxide, direnv, nvim, wezterm, ghostty.
+  Data model: Keep three layers only: shared defaults, OS-specific behavior, and
+  direct host overrides. Do not introduce role/profile layers.
+  Security: Never commit plaintext tokens, SSH private keys, cookies, .env files,
+  browser state, history, caches, node_modules, or company secrets. Prefer
+  1Password/Bitwarden for real secrets and use age only for small encrypted files
+  that must sync with the repository.
+  Implementation style: Prefer conservative, idempotent scripts. Doctor commands
+  are read-only. Bootstrap and package/runtime commands may modify the system but
+  should be explicit, staged, and safe to re-run. Chezmoi run scripts should
+  delegate to testable scripts under scripts/.
+  Current host priority: Windows development machine, while keeping macOS/Linux
+  entrypoints and package data in the first version.
+
+rules:
+  proposal:
+    - Include an explicit Non-goals section.
+    - Keep the change independently reviewable and implementable.
+    - State whether the change affects system state or is read-only.
+  design:
+    - Call out Windows behavior separately when it differs from POSIX shells.
+    - Keep scripts idempotent and avoid storing secrets.
+  tasks:
+    - Include validation tasks for OpenSpec and any script syntax checks.
+    - Keep tasks concrete enough to mark complete from repository evidence.

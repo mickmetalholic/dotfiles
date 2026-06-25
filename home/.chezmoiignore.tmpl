@@ -1,0 +1,21 @@
+{{ if eq .chezmoi.os "windows" }}
+dot_zshrc.tmpl
+dot_bashrc.tmpl
+dot_profile.tmpl
+dot_config/ghostty/config.tmpl
+dot_config/wezterm/wezterm.lua.tmpl
+dot_config/zellij/config.kdl
+{{ else }}
+Documents/PowerShell/Microsoft.PowerShell_profile.ps1.tmpl
+dot_local/bin/executable_dot.ps1.tmpl
+dot_local/bin/executable_dot.cmd.tmpl
+{{ end }}
+
+private_dot_ssh/id_*
+private_dot_ssh/*.pem
+private_dot_ssh/*.key
+**/.env
+**/.env.*
+**/node_modules/**
+**/*history*
+**/cookies*

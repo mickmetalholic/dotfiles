@@ -1,0 +1,7 @@
+name: Yuan
+editor: nvim
+shell: zsh
+terminal: wezterm
+installGuiApps: true
+sshAgent: system
+repo: https://github.com/mickmetalholic/dotfiles.git

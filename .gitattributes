@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+*.ps1 text eol=lf
+*.ps1.tmpl text eol=lf
+*.sh text eol=lf
+*.sh.tmpl text eol=lf
+*.cmd.tmpl text eol=crlf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.tmpl text eol=lf
+*.md text eol=lf
