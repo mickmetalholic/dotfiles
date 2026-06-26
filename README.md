@@ -25,6 +25,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mickmetalholic/dotfiles/ma
 
 The Windows install entrypoint installs `chezmoi` with `winget` when needed. The macOS/Linux install entrypoint installs `chezmoi` with Homebrew when available, otherwise it falls back to the official `get.chezmoi.io` installer into `~/.local/bin`.
 
+The first run asks for the Git email used by managed Git config. For non-interactive setup, set `DOTFILES_EMAIL` before running the install command.
+
 Before changing GitHub visibility to public, run:
 
 ```sh
@@ -72,7 +74,7 @@ Use only three layers:
 
 Do not add role/profile layers. If a single machine needs special behavior, put it directly in host data.
 
-Set `DOTFILES_HOST` before `chezmoi init` to force a host profile when the OS hostname is not the desired key. Set `DOTFILES_EMAIL` to override the Git email used by templates.
+Set `DOTFILES_HOST` before `chezmoi init` to force a host profile when the OS hostname is not the desired key. Set `DOTFILES_EMAIL` to provide the Git email non-interactively.
 
 ## Secrets
 
