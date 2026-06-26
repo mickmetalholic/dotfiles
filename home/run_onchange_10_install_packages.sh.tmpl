@@ -2,4 +2,8 @@
 set -eu
 DOTFILES_HOST="{{ .host }}"
 export DOTFILES_HOST
-"{{ .chezmoi.sourceDir }}/scripts/packages.sh"{{ if eq (env "DOTFILES_INSTALL_GUI") "1" }} --gui{{ end }}
+package_args=""
+if [ "${DOTFILES_INSTALL_GUI:-}" = "1" ]; then
+  package_args="--gui"
+fi
+"{{ .chezmoi.sourceDir }}/scripts/packages.sh" $package_args
