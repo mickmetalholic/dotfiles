@@ -50,7 +50,6 @@ if (Test-DotCommand chezmoi) {
 Write-DotSection "Package Managers"
 Test-DotOptionalCommand brew
 Test-DotOptionalCommand winget
-Test-DotOptionalCommand scoop
 Test-DotOptionalCommand apt
 Test-DotOptionalCommand dnf
 Test-DotOptionalCommand pacman
@@ -63,6 +62,11 @@ foreach ($cmd in @("node", "pnpm", "uv", "python", "bun", "go", "rustc")) {
 
 Write-DotSection "Shell"
 foreach ($cmd in @("zsh", "pwsh", "starship", "zoxide", "direnv")) {
+  Test-DotOptionalCommand $cmd
+}
+
+Write-DotSection "Developer CLI"
+foreach ($cmd in @("eza", "bat", "delta", "lazygit", "just", "yq", "shellcheck", "shfmt", "http")) {
   Test-DotOptionalCommand $cmd
 }
 

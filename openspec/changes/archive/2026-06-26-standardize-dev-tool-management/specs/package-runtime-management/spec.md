@@ -1,8 +1,5 @@
-# package-runtime-management Specification
+## MODIFIED Requirements
 
-## Purpose
-TBD - created by archiving change add-package-runtime-management. Update Purpose after archive.
-## Requirements
 ### Requirement: Declarative package data
 The repository SHALL declare shared runtimes, shared developer tools, OS-specific package manager entries, official fallback entries, GUI development applications, and direct host-specific package overrides in `data/packages.yaml`.
 
@@ -25,19 +22,7 @@ The repository SHALL declare shared runtimes, shared developer tools, OS-specifi
 - **WHEN** a declared tool is unavailable through the primary OS package manager
 - **THEN** the command reports or uses the declared official fallback path without relying on an undeclared package manager
 
-### Requirement: Runtime installation command
-`dot runtime` SHALL delegate runtime installation to mise.
-
-#### Scenario: Mise is available
-- **WHEN** the user runs `dot runtime`
-- **THEN** the command invokes `mise install`
-
-### Requirement: Chezmoi package hooks
-Chezmoi onchange hooks SHALL delegate package and runtime work to repository scripts.
-
-#### Scenario: Package data changes
-- **WHEN** chezmoi detects package data changed
-- **THEN** the run hook calls the package script instead of containing installer logic inline
+## ADDED Requirements
 
 ### Requirement: Windows winget standardization
 Windows package installation SHALL use `winget` as the only managed Windows package manager.
@@ -74,4 +59,3 @@ Package installation SHALL apply Docker and k3s only according to direct host ov
 #### Scenario: linux-devbox packages are installed
 - **WHEN** package installation runs for host `linux-devbox`
 - **THEN** Docker and native k3s are selected
-

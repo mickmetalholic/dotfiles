@@ -27,6 +27,8 @@ The Windows install entrypoint installs `chezmoi` with `winget` when needed. The
 
 The first run asks for the Git email used by managed Git config. For non-interactive setup, set `DOTFILES_EMAIL` before running the install command.
 
+Windows package management is standardized on `winget`. This repository does not use `scoop` as a managed package manager.
+
 Before changing GitHub visibility to public, run:
 
 ```sh
@@ -52,6 +54,30 @@ dot validate
 ```
 
 `dot doctor` and `dot public-readiness` are read-only. `dot bootstrap`, `dot packages`, and `dot runtime` may install or update local software.
+
+## Managed Software Scope
+
+This repository manages a reproducible development environment, not a complete personal application inventory.
+
+Managed by default or by OS support:
+
+- developer CLI tools such as Git, GitHub CLI, jq, ripgrep, fd, fzf, eza, zoxide, bat, tlrc, delta, lazygit, just, yq, shellcheck, and shfmt
+- shell, prompt, terminal, editor, runtime, and direnv/mise configuration
+- language runtimes declared through mise
+- development GUI apps when GUI installation is explicitly requested, such as VS Code, Cursor, supported terminals, and HTTPie Desktop
+- AI coding tools such as Codex and Reasonix through package managers where supported or official fallback instructions
+
+Not managed:
+
+- general personal applications that are not part of the development workflow
+- Obsidian
+- browser state, app login state, caches, shell history, cookies, plaintext tokens, private keys, and `.env` files
+
+Host-specific devops tooling is intentionally narrow:
+
+- `work-mac` manages Docker only and does not install k3s or k3d
+- `linux-devbox` manages Docker and native k3s
+- other hosts do not install Docker or k3s by default
 
 ## Layout
 

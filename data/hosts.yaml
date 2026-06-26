@@ -19,6 +19,9 @@ hosts:
     shell: zsh
     terminal: ghostty
     installGuiApps: false
+    devops:
+      docker: true
+      kubernetes: none
 
   linux-devbox:
     os: linux
@@ -26,3 +29,6 @@ hosts:
     shell: zsh
     terminal: wezterm
     installGuiApps: false
+    devops:
+      docker: true
+      kubernetes: k3s

@@ -47,6 +47,10 @@ dot_install_mise || true
 
 if dot_has chezmoi; then
   dot_status warn chezmoi "applying source"
+  if [ "$install_gui" = true ]; then
+    DOTFILES_INSTALL_GUI=1
+    export DOTFILES_INSTALL_GUI
+  fi
   chezmoi apply
 fi
 
