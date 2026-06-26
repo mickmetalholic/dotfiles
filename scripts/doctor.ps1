@@ -122,3 +122,5 @@ if ($tokenHits.Count -gt 0) {
 } else {
   Write-DotStatus ok "plaintext token scan" "no obvious tokens"
 }
+
+Write-DotSummary

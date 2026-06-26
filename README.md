@@ -32,6 +32,8 @@ macOS/Linux:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mickmetalholic/dotfiles/main/install.sh)"
 ```
 
+The Windows install entrypoint installs `chezmoi` with `winget` when needed. The macOS/Linux install entrypoint installs `chezmoi` with Homebrew when available, otherwise it falls back to the official `get.chezmoi.io` installer into `~/.local/bin`.
+
 Because this repository is private, a new machine needs GitHub access through `gh auth login`, Git credential manager, SSH, or an authenticated raw-file request before install scripts can clone or fetch repository content.
 
 ## Daily Commands
@@ -45,6 +47,7 @@ dot diff
 dot edit
 dot packages
 dot runtime
+dot validate
 ```
 
 `dot doctor` is read-only. `dot bootstrap`, `dot packages`, and `dot runtime` may install or update local software.
@@ -98,7 +101,7 @@ Use 1Password or Bitwarden for real secrets. Use age only for small encrypted fi
 ## Validation
 
 ```sh
-openspec validate --strict
-pwsh -NoProfile -Command "Get-ChildItem scripts -Filter *.ps1 -Recurse | ForEach-Object { [scriptblock]::Create((Get-Content -Raw $_.FullName)) > $null }"
-sh -n install.sh scripts/*.sh scripts/lib/*.sh
+dot validate
 ```
+
+`dot validate` runs strict OpenSpec validation and script syntax checks. On hosts without PowerShell, it reports the PowerShell syntax check as skipped instead of hiding the gap.
