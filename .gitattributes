@@ -1,12 +1,17 @@
 * text=auto eol=lf
 
 *.ps1 text eol=lf
+*.psm1 text eol=lf
+*.psd1 text eol=lf
 *.ps1.tmpl text eol=lf
 *.sh text eol=lf
 *.sh.tmpl text eol=lf
 *.cmd.tmpl text eol=crlf
+*.json text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf
 *.toml text eol=lf
+*.lua text eol=lf
+*.kdl text eol=lf
 *.tmpl text eol=lf
 *.md text eol=lf
