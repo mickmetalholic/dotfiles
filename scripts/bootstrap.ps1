@@ -38,6 +38,9 @@ if ($Gui) {
 
 if (Test-DotCommand chezmoi) {
   Write-DotStatus warn chezmoi "applying source"
+  if ($Gui) {
+    $env:DOTFILES_INSTALL_GUI = "1"
+  }
   & chezmoi apply
 }
 

@@ -50,7 +50,6 @@ dot_check_optional_command apt-get
 dot_check_optional_command dnf
 dot_check_optional_command pacman
 dot_check_optional_command winget
-dot_check_optional_command scoop
 
 dot_section "Runtime"
 dot_check_command mise "dot bootstrap"
@@ -68,6 +67,17 @@ dot_check_optional_command pwsh
 dot_check_optional_command starship
 dot_check_optional_command zoxide
 dot_check_optional_command direnv
+
+dot_section "Developer CLI"
+dot_check_optional_command eza
+dot_check_optional_command bat
+dot_check_optional_command delta
+dot_check_optional_command lazygit
+dot_check_optional_command just
+dot_check_optional_command yq
+dot_check_optional_command shellcheck
+dot_check_optional_command shfmt
+dot_check_optional_command http
 
 dot_section "Auth"
 if dot_has gh; then

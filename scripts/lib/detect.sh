@@ -17,3 +17,11 @@ dot_os() {
 dot_arch() {
   uname -m 2>/dev/null || printf unknown
 }
+
+dot_host() {
+  if [ -n "${DOTFILES_HOST:-}" ]; then
+    printf '%s' "$DOTFILES_HOST"
+  else
+    hostname 2>/dev/null || printf unknown
+  fi
+}

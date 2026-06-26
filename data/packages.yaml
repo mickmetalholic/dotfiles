@@ -7,6 +7,36 @@ shared:
     - bun@latest
     - go@latest
     - rust@latest
+  cli:
+    - git
+    - gh
+    - jq
+    - ripgrep
+    - fd
+    - fzf
+    - eza
+    - zoxide
+    - starship
+    - mise
+    - direnv
+    - uv
+    - httpie-cli
+    - bat
+    - tlrc
+    - git-delta
+    - lazygit
+    - just
+    - yq
+    - shellcheck
+    - shfmt
+    - psscriptanalyzer
+    - taplo
+    - stylua
+  ai:
+    - codex-cli
+    - codex-app
+    - reasonix-cli
+    - reasonix-app
 
 darwin:
   brew:
@@ -21,10 +51,29 @@ darwin:
     - mise
     - direnv
     - uv
+    - eza
+    - httpie
+    - bat
+    - tlrc
+    - git-delta
+    - lazygit
+    - just
+    - yq
+    - shellcheck
+    - shfmt
+    - taplo
+    - stylua
   casks:
     - ghostty
     - visual-studio-code
-    - obsidian
+    - httpie
+    - cursor
+  fallbacks:
+    codex-cli: https://developers.openai.com/codex/cli
+    codex-app: https://developers.openai.com/codex/app
+    reasonix-cli: https://api-docs.deepseek.com/quick_start/agent_integrations/reasonix
+    reasonix-app: https://github.com/esengine/DeepSeek-Reasonix/releases
+    psscriptanalyzer: Install-Module PSScriptAnalyzer -Scope CurrentUser
 
 linux:
   apt:
@@ -36,11 +85,32 @@ linux:
     - fd-find
     - fzf
     - zsh
+    - httpie
+    - bat
+    - shellcheck
+    - shfmt
   brew:
     - gh
+    - eza
+    - zoxide
     - starship
     - mise
     - uv
+    - tlrc
+    - git-delta
+    - lazygit
+    - just
+    - yq
+    - taplo
+    - stylua
+  fallbacks:
+    codex-cli: https://developers.openai.com/codex/cli
+    codex-app: https://developers.openai.com/codex/app
+    docker-engine: https://docs.docker.com/engine/install/
+    k3s: https://docs.k3s.io/quick-start
+    reasonix-cli: https://api-docs.deepseek.com/quick_start/agent_integrations/reasonix
+    reasonix-app: https://github.com/esengine/DeepSeek-Reasonix/releases
+    psscriptanalyzer: Install-Module PSScriptAnalyzer -Scope CurrentUser
 
 windows:
   winget:
@@ -51,11 +121,29 @@ windows:
     - jdx.mise
     - sharkdp.fd
     - BurntSushi.ripgrep.MSVC
-  scoop:
-    - jq
-    - fzf
-    - starship
-    - zoxide
+    - jqlang.jq
+    - junegunn.fzf
+    - Starship.Starship
+    - ajeetdsouza.zoxide
+    - eza-community.eza
+    - sharkdp.bat
+    - tldr-pages.tlrc
+    - dandavison.delta
+    - JesseDuffield.lazygit
+    - Casey.Just
+    - MikeFarah.yq
+    - koalaman.shellcheck
+    - mvdan.shfmt
   gui:
     - Microsoft.VisualStudioCode
-    - Obsidian.Obsidian
+    - HTTPie.HTTPie
+    - Anysphere.Cursor
+  fallbacks:
+    codex-cli: https://developers.openai.com/codex/cli
+    codex-app: https://developers.openai.com/codex/app
+    httpie-cli: https://httpie.io/cli
+    psscriptanalyzer: Install-Module PSScriptAnalyzer -Scope CurrentUser
+    reasonix-cli: https://api-docs.deepseek.com/quick_start/agent_integrations/reasonix
+    reasonix-app: https://github.com/esengine/DeepSeek-Reasonix/releases
+    taplo: https://taplo.tamasfe.dev/cli/installation/
+    stylua: https://github.com/JohnnyMorganz/StyLua

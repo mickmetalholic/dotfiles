@@ -25,29 +25,3 @@ function Install-DotWingetPackage {
     winget install --id $Id --exact --accept-package-agreements --accept-source-agreements
   }
 }
-
-function Install-DotScoopPackage {
-  param(
-    [Parameter(Mandatory)][string]$Name,
-    [switch]$DryRun
-  )
-
-  if (-not (Test-DotCommand scoop)) {
-    Write-DotStatus warn scoop "not installed"
-    Write-DotFix "install scoop or skip scoop packages"
-    return
-  }
-
-  $installed = scoop list 2>$null
-  if ($installed -match "(?m)^\s*$([regex]::Escape($Name))\s") {
-    Write-DotStatus ok $Name "scoop"
-    return
-  }
-
-  if ($DryRun) {
-    Write-DotStatus warn $Name "would install with scoop"
-  } else {
-    Write-DotStatus warn $Name "installing with scoop"
-    scoop install $Name
-  }
-}

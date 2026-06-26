@@ -1,8 +1,5 @@
-# bootstrap-workflow Specification
+## MODIFIED Requirements
 
-## Purpose
-TBD - created by archiving change add-bootstrap-workflow. Update Purpose after archive.
-## Requirements
 ### Requirement: Conservative bootstrap
 `dot bootstrap` SHALL install foundational tooling, apply dotfiles, and delegate package installation through explicit, idempotent steps that respect GUI and host-specific package settings.
 
@@ -14,13 +11,6 @@ TBD - created by archiving change add-bootstrap-workflow. Update Purpose after a
 - **WHEN** bootstrap or package hooks apply package installation for a host with direct devops overrides
 - **THEN** only the devops tools declared for that host are considered for installation
 
-### Requirement: Remote install entrypoints
-The repository SHALL provide POSIX and PowerShell install entrypoints that install chezmoi when needed, initialize the repository, run bootstrap, and finish with doctor.
-
-#### Scenario: User runs Windows install entrypoint
-- **WHEN** `install.ps1` is invoked
-- **THEN** it ensures chezmoi is available and delegates further setup to repository bootstrap scripts
-
 ### Requirement: Explicit stronger behavior
 Bootstrap SHALL require explicit flags for GUI installation and forceful overwrite behavior, and SHALL NOT treat host-specific heavyweight tools as global defaults.
 
@@ -31,15 +21,3 @@ Bootstrap SHALL require explicit flags for GUI installation and forceful overwri
 #### Scenario: Host-specific heavyweight tools are absent
 - **WHEN** bootstrap runs on a host without Docker or k3s overrides
 - **THEN** Docker and k3s are not installed as part of the default bootstrap behavior
-
-### Requirement: Public one-command install
-The repository SHALL support a public install path that does not require GitHub authentication when the repository is public.
-
-#### Scenario: POSIX public install
-- **WHEN** a user runs the documented POSIX raw-file install command against a public repository
-- **THEN** the install script initializes the dotfiles without requiring `gh auth login`
-
-#### Scenario: Windows public install
-- **WHEN** a user runs the documented Windows raw-file install command against a public repository
-- **THEN** the install script initializes the dotfiles without requiring `gh auth login`
-
