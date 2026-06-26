@@ -25,6 +25,7 @@ if (Test-DotCommand sh) {
     (Join-Path $root "scripts/doctor.sh") `
     (Join-Path $root "scripts/dot.sh") `
     (Join-Path $root "scripts/packages.sh") `
+    (Join-Path $root "scripts/public-readiness.sh") `
     (Join-Path $root "scripts/runtime.sh") `
     (Join-Path $root "scripts/validate.sh") `
     (Join-Path $root "scripts/lib/checks.sh") `
