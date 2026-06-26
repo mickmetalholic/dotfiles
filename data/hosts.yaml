@@ -1,6 +1,5 @@
 hosts:
   win-desktop:
-    email: yuan@example.com
     os: windows
     purpose: desktop
     shell: pwsh
@@ -8,7 +7,6 @@ hosts:
     installGuiApps: true
 
   macbook-pro:
-    email: yuan@example.com
     os: darwin
     purpose: personal-laptop
     shell: zsh
@@ -16,7 +14,6 @@ hosts:
     installGuiApps: true
 
   work-mac:
-    email: yuan@company.com
     os: darwin
     purpose: work
     shell: zsh
@@ -24,7 +21,6 @@ hosts:
     installGuiApps: false
 
   linux-devbox:
-    email: yuan@example.com
     os: linux
     purpose: devbox
     shell: zsh

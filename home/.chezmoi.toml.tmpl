@@ -1,33 +1,33 @@
 {{- $host := env "DOTFILES_HOST" | default .chezmoi.hostname -}}
+{{- $email := env "DOTFILES_EMAIL" -}}
+{{- if not $email -}}
+{{- $email = promptStringOnce . "email" "Git email" -}}
+{{- end -}}
 sourceDir = "{{ .chezmoi.sourceDir }}"
 
 [data]
 name = "Yuan"
 host = {{ $host | quote }}
+email = {{ $email | quote }}
 editor = "{{ env "EDITOR" | default "nvim" }}"
 sshAgent = "system"
 {{ if or (eq $host "win-desktop") (eq $host "SARGERAS") }}
-email = "{{ env "DOTFILES_EMAIL" | default "yuan@example.com" }}"
 shell = "pwsh"
 terminal = "windows-terminal"
 installGuiApps = true
 {{ else if eq $host "work-mac" }}
-email = "{{ env "DOTFILES_EMAIL" | default "yuan@company.com" }}"
 shell = "zsh"
 terminal = "ghostty"
 installGuiApps = false
 {{ else if eq $host "macbook-pro" }}
-email = "{{ env "DOTFILES_EMAIL" | default "yuan@example.com" }}"
 shell = "zsh"
 terminal = "ghostty"
 installGuiApps = true
 {{ else if eq $host "linux-devbox" }}
-email = "{{ env "DOTFILES_EMAIL" | default "yuan@example.com" }}"
 shell = "zsh"
 terminal = "wezterm"
 installGuiApps = false
 {{ else }}
-email = "{{ env "DOTFILES_EMAIL" | default "yuan@example.com" }}"
 shell = "{{ if eq .chezmoi.os "windows" }}pwsh{{ else }}zsh{{ end }}"
 terminal = "{{ if eq .chezmoi.os "windows" }}windows-terminal{{ else }}wezterm{{ end }}"
 installGuiApps = true
