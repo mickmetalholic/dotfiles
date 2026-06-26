@@ -6,6 +6,22 @@ $ErrorActionPreference = "Stop"
 
 $root = Get-DotfilesRoot
 
+function Get-DotPosixFiles {
+  $files = @()
+  $files += Get-ChildItem -LiteralPath $root -Filter "*.sh" -File
+  $files += Get-ChildItem -LiteralPath (Join-Path $root "scripts") -Filter "*.sh" -Recurse -File
+  $files += Get-ChildItem -LiteralPath (Join-Path $root "home") -Filter "*.sh.tmpl" -Recurse -File
+  return $files
+}
+
+function Get-DotPowerShellFiles {
+  $files = @()
+  $files += Get-ChildItem -LiteralPath $root -Filter "*.ps1" -File
+  $files += Get-ChildItem -LiteralPath (Join-Path $root "scripts") -Filter "*.ps1" -Recurse -File
+  $files += Get-ChildItem -LiteralPath (Join-Path $root "home") -Filter "*.ps1.tmpl" -Recurse -File
+  return $files
+}
+
 Write-DotSection "OpenSpec"
 if (Test-DotCommand openspec) {
   & openspec validate --all --strict
@@ -19,36 +35,45 @@ if (Test-DotCommand openspec) {
 
 Write-DotSection "POSIX Syntax"
 if (Test-DotCommand sh) {
-  & sh -n `
-    (Join-Path $root "install.sh") `
-    (Join-Path $root "scripts/bootstrap.sh") `
-    (Join-Path $root "scripts/doctor.sh") `
-    (Join-Path $root "scripts/dot.sh") `
-    (Join-Path $root "scripts/packages.sh") `
-    (Join-Path $root "scripts/public-readiness.sh") `
-    (Join-Path $root "scripts/runtime.sh") `
-    (Join-Path $root "scripts/validate.sh") `
-    (Join-Path $root "scripts/lib/checks.sh") `
-    (Join-Path $root "scripts/lib/detect.sh") `
-    (Join-Path $root "scripts/lib/install.sh") `
-    (Join-Path $root "scripts/lib/output.sh") `
-    (Join-Path $root "scripts/lib/packages.sh") `
-    (Join-Path $root "home/run_onchange_10_install_packages.sh.tmpl") `
-    (Join-Path $root "home/run_onchange_20_configure_runtime.sh.tmpl") `
-    (Join-Path $root "home/run_once_00_bootstrap.sh.tmpl")
-  if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+  foreach ($file in Get-DotPosixFiles) {
+    & sh -n $file.FullName
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+  }
   Write-DotStatus ok sh "syntax valid"
 } else {
   Write-DotStatus warn sh "syntax validation skipped"
   Write-DotFix "install a POSIX shell to validate *.sh files on this host"
 }
 
+Write-DotSection "POSIX Static Analysis"
+if (Test-DotCommand shellcheck) {
+  foreach ($file in Get-DotPosixFiles) {
+    & shellcheck --severity=error $file.FullName
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+  }
+  Write-DotStatus ok shellcheck "static analysis valid"
+} else {
+  Write-DotStatus warn shellcheck "static analysis skipped"
+  Write-DotFix "install ShellCheck to validate POSIX scripts on this host"
+}
+
 Write-DotSection "PowerShell Syntax"
-$files = @()
-$files += Get-ChildItem -LiteralPath $root -Filter "*.ps1" -File
-$files += Get-ChildItem -LiteralPath (Join-Path $root "scripts") -Filter "*.ps1" -Recurse -File
-$files += Get-ChildItem -LiteralPath (Join-Path $root "home") -Filter "*.ps1.tmpl" -Recurse -File
-foreach ($file in $files) {
+foreach ($file in Get-DotPowerShellFiles) {
   [scriptblock]::Create((Get-Content -Raw -LiteralPath $file.FullName)) > $null
 }
 Write-DotStatus ok pwsh "syntax valid"
+
+Write-DotSection "PowerShell Static Analysis"
+if (Test-DotCommand Invoke-ScriptAnalyzer) {
+  $diagnostics = foreach ($file in Get-DotPowerShellFiles) {
+    Invoke-ScriptAnalyzer -ScriptDefinition (Get-Content -Raw -LiteralPath $file.FullName) -Severity Error
+  }
+  if ($diagnostics) {
+    $diagnostics | Format-List
+    exit 1
+  }
+  Write-DotStatus ok PSScriptAnalyzer "static analysis valid"
+} else {
+  Write-DotStatus warn PSScriptAnalyzer "static analysis skipped"
+  Write-DotFix "install PSScriptAnalyzer to validate PowerShell scripts on this host"
+}
