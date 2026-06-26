@@ -14,6 +14,8 @@ dot commands:
   diff        run chezmoi diff
   edit        open the chezmoi source directory
   packages    install/update declared packages
+  public-readiness
+              check whether repository content is ready to publish
   runtime     run mise install
   validate    run repository validation checks
 USAGE
@@ -28,6 +30,7 @@ case "$cmd" in
   doctor) exec "$DOTFILES_ROOT/scripts/doctor.sh" "$@" ;;
   bootstrap) exec "$DOTFILES_ROOT/scripts/bootstrap.sh" "$@" ;;
   packages) exec "$DOTFILES_ROOT/scripts/packages.sh" "$@" ;;
+  public-readiness) exec "$DOTFILES_ROOT/scripts/public-readiness.sh" "$@" ;;
   runtime) exec "$DOTFILES_ROOT/scripts/runtime.sh" "$@" ;;
   validate) exec "$DOTFILES_ROOT/scripts/validate.sh" "$@" ;;
   apply) exec chezmoi apply "$@" ;;

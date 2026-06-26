@@ -1,6 +1,6 @@
 # dotfiles
 
-Private dotfiles and machine health checks for `mickmetalholic`.
+Personal dotfiles and machine health checks for `mickmetalholic`.
 
 This repository has two jobs:
 
@@ -9,16 +9,7 @@ This repository has two jobs:
 
 ## Install
 
-Recommended private-repo flow:
-
-```powershell
-gh auth login
-winget install --id twpayne.chezmoi --exact
-chezmoi init --apply https://github.com/mickmetalholic/dotfiles.git
-dot doctor
-```
-
-If you already have an authenticated way to fetch private raw files, the install entrypoints are:
+After this repository is public, use the one-command install entrypoint for the target OS.
 
 Windows:
 
@@ -34,7 +25,14 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mickmetalholic/dotfiles/ma
 
 The Windows install entrypoint installs `chezmoi` with `winget` when needed. The macOS/Linux install entrypoint installs `chezmoi` with Homebrew when available, otherwise it falls back to the official `get.chezmoi.io` installer into `~/.local/bin`.
 
-Because this repository is private, a new machine needs GitHub access through `gh auth login`, Git credential manager, SSH, or an authenticated raw-file request before install scripts can clone or fetch repository content.
+Before changing GitHub visibility to public, run:
+
+```sh
+dot public-readiness
+dot validate
+```
+
+Review any metadata findings before changing repository visibility manually in GitHub settings.
 
 ## Daily Commands
 
@@ -46,11 +44,12 @@ dot update
 dot diff
 dot edit
 dot packages
+dot public-readiness
 dot runtime
 dot validate
 ```
 
-`dot doctor` is read-only. `dot bootstrap`, `dot packages`, and `dot runtime` may install or update local software.
+`dot doctor` and `dot public-readiness` are read-only. `dot bootstrap`, `dot packages`, and `dot runtime` may install or update local software.
 
 ## Layout
 
