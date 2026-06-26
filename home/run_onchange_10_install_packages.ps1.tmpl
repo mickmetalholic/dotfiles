@@ -1,2 +1,6 @@
 $env:DOTFILES_HOST = "{{ .host }}"
-& "{{ .chezmoi.sourceDir }}\scripts\packages.ps1"{{ if eq (env "DOTFILES_INSTALL_GUI") "1" }} -Gui{{ end }}
+$packageArgs = @()
+if ($env:DOTFILES_INSTALL_GUI -eq "1") {
+  $packageArgs += "-Gui"
+}
+& "{{ .chezmoi.sourceDir }}\scripts\packages.ps1" @packageArgs
