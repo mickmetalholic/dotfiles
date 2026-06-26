@@ -2,6 +2,7 @@
 set -eu
 
 DOTFILES_ROOT="${DOTFILES_ROOT:-$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)}"
+export DOTFILES_ROOT
 . "$DOTFILES_ROOT/scripts/lib/output.sh"
 . "$DOTFILES_ROOT/scripts/lib/detect.sh"
 
