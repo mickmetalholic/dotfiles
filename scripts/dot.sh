@@ -15,6 +15,7 @@ dot commands:
   edit        open the chezmoi source directory
   packages    install/update declared packages
   runtime     run mise install
+  validate    run repository validation checks
 USAGE
 }
 
@@ -28,6 +29,7 @@ case "$cmd" in
   bootstrap) exec "$DOTFILES_ROOT/scripts/bootstrap.sh" "$@" ;;
   packages) exec "$DOTFILES_ROOT/scripts/packages.sh" "$@" ;;
   runtime) exec "$DOTFILES_ROOT/scripts/runtime.sh" "$@" ;;
+  validate) exec "$DOTFILES_ROOT/scripts/validate.sh" "$@" ;;
   apply) exec chezmoi apply "$@" ;;
   update) exec chezmoi update "$@" ;;
   diff) exec chezmoi diff "$@" ;;

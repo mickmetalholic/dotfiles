@@ -112,3 +112,5 @@ if grep -RIE "(gho_|ghp_|api[_-]?key|secret|token=)" "$DOTFILES_ROOT/home" "$DOT
 else
   dot_status ok "plaintext token scan" "no obvious tokens"
 fi
+
+dot_summary
